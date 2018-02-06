@@ -35,57 +35,57 @@
 
     <script>
 
-    list_data = [];
-
-    d3.csv("borough_trips_count.csv", function(data) {
-      var size_csv = data.length;
-      for (var i=0; i<size_csv; i++){
-          data_temporal = []
-          data_temporal.push(data[i].Origin);
-          data_temporal.push(data[i].Destination);
-          data_temporal.push(parseFloat(data[i].Times));
-          list_data.push(data_temporal);
-      }
-
-
-      var colors = {
-      "Staten Island":  "#da4480"
-      ,"Queens":        "#5ab449"
-      ,"Brooklyn":      "#45c0bc"
-      ,"Manhattan":     "#ce5929"
-      ,"Bronx":         "#dc85b6"
-      };
-
-
-      var sortOrder =[
-      "Staten Island"
-      ,"Queens"
-      ,"Brooklyn"
-      ,"Manhattan"
-      ,"Bronx"
-      ];
-
-
-    function sort(a,b){ return d3.ascending(sortOrder.indexOf(a),sortOrder.indexOf(b)); }
-
-
-    var ch = viz.ch().data(list_data)
-         .padding(.01)
-         .sort(sort)
-   	  .innerRadius(430)
-   	  .outerRadius(450)
-   	  .duration(1000)
-   	  .chordOpacity(0.3)
-   	  .labelPadding(.03)
-         .fill(function(d){ return colors[d];});
-
-   var width=1200, height=1100;
-
-   var svg = d3.select("body").append("svg").attr("height",height).attr("width",width);
-
-   svg.append("g").attr("transform", "translate(600,550)").call(ch);
-
-   d3.select(self.frameElement).style("height", height+"px").style("width", width+"px");
+   //  list_data = [];
+   //
+   //  d3.csv("borough_trips_count.csv", function(data) {
+   //    var size_csv = data.length;
+   //    for (var i=0; i<size_csv; i++){
+   //        data_temporal = []
+   //        data_temporal.push(data[i].Origin);
+   //        data_temporal.push(data[i].Destination);
+   //        data_temporal.push(parseFloat(data[i].Times));
+   //        list_data.push(data_temporal);
+   //    }
+   //
+   //
+   //    var colors = {
+   //    "Staten Island":  "#da4480"
+   //    ,"Queens":        "#5ab449"
+   //    ,"Brooklyn":      "#45c0bc"
+   //    ,"Manhattan":     "#ce5929"
+   //    ,"Bronx":         "#dc85b6"
+   //    };
+   //
+   //
+   //    var sortOrder =[
+   //    "Staten Island"
+   //    ,"Queens"
+   //    ,"Brooklyn"
+   //    ,"Manhattan"
+   //    ,"Bronx"
+   //    ];
+   //
+   //
+   //  function sort(a,b){ return d3.ascending(sortOrder.indexOf(a),sortOrder.indexOf(b)); }
+   //
+   //
+   //  var ch = viz.ch().data(list_data)
+   //       .padding(.01)
+   //       .sort(sort)
+   // 	  .innerRadius(430)
+   // 	  .outerRadius(450)
+   // 	  .duration(1000)
+   // 	  .chordOpacity(0.3)
+   // 	  .labelPadding(.03)
+   //       .fill(function(d){ return colors[d];});
+   //
+   // var width=1200, height=1100;
+   //
+   // var svg = d3.select("body").append("svg").attr("height",height).attr("width",width);
+   //
+   // svg.append("g").attr("transform", "translate(600,550)").call(ch);
+   //
+   // d3.select(self.frameElement).style("height", height+"px").style("width", width+"px");
 
 
       // console.log(list_data);
@@ -97,59 +97,59 @@
 
 
 
-    });
+    // });
 
 
-    //
-    // var data =
-    // [['Arsenal','Aston Villa',6]
-    // ,['Arsenal','Arsenal',7]
-    // ,['Arsenal','Liverpool',3]
-    // ,['Arsenal','Manchester City',4]
-    // ,['Aston Villa','Arsenal',4]
-    // ,['Aston Villa','Liverpool',2]
-    // ,['Aston Villa','Manchester City',3]
-    // ,['Liverpool','Arsenal',3]
-    // ,['Liverpool','Aston Villa',9]
-    // ,['Liverpool','Manchester City',7]
-    // ,['Manchester City','Arsenal',3]
-    // ,['Manchester City','Aston Villa',4]
-    // ,['Manchester City','Liverpool',1]
-    // ];
-    //
-    // var colors = {
-    // "Arsenal":         "#da4480"
-    // ,"Aston Villa":    "#5ab449"
-    // ,"Liverpool":      "#45c0bc"
-    // ,"Manchester City":"#ce5929"
-    // };
-    //
-    // var sortOrder =[
-    // "Liverpool"
-    // ,"Arsenal"
-    // ,"Aston Villa"
-    // ,"Manchester City"
-    // ];
-    //
-    // function sort(a,b){ return d3.ascending(sortOrder.indexOf(a),sortOrder.indexOf(b)); }
-    //
-    // var ch = viz.ch().data(data)
-    //       .padding(.01)
-    //       .sort(sort)
-    // 	  .innerRadius(430)
-    // 	  .outerRadius(450)
-    // 	  .duration(1000)
-    // 	  .chordOpacity(0.3)
-    // 	  .labelPadding(.03)
-    //       .fill(function(d){ return colors[d];});
-    //
-    // var width=1200, height=1100;
-    //
-    // var svg = d3.select("body").append("svg").attr("height",height).attr("width",width);
-    //
-    // svg.append("g").attr("transform", "translate(600,550)").call(ch);
-    //
-    // d3.select(self.frameElement).style("height", height+"px").style("width", width+"px");
+
+    var data =
+    [['Arsenal','Aston Villa',6]
+    ,['Arsenal','Arsenal',7]
+    ,['Arsenal','Liverpool',3]
+    ,['Arsenal','Manchester City',4]
+    ,['Aston Villa','Arsenal',4]
+    ,['Aston Villa','Liverpool',2]
+    ,['Aston Villa','Manchester City',3]
+    ,['Liverpool','Arsenal',3]
+    ,['Liverpool','Aston Villa',9]
+    ,['Liverpool','Manchester City',7]
+    ,['Manchester City','Arsenal',3]
+    ,['Manchester City','Aston Villa',4]
+    ,['Manchester City','Liverpool',1]
+    ];
+
+    var colors = {
+    "Arsenal":         "#da4480"
+    ,"Aston Villa":    "#5ab449"
+    ,"Liverpool":      "#45c0bc"
+    ,"Manchester City":"#ce5929"
+    };
+
+    var sortOrder =[
+    "Liverpool"
+    ,"Arsenal"
+    ,"Aston Villa"
+    ,"Manchester City"
+    ];
+
+    function sort(a,b){ return d3.ascending(sortOrder.indexOf(a),sortOrder.indexOf(b)); }
+
+    var ch = viz.ch().data(data)
+          .padding(.01)
+          .sort(sort)
+    	  .innerRadius(430)
+    	  .outerRadius(450)
+    	  .duration(1000)
+    	  .chordOpacity(0.3)
+    	  .labelPadding(.03)
+          .fill(function(d){ return colors[d];});
+
+    var width=1200, height=1100;
+
+    var svg = d3.select("body").append("svg").attr("height",height).attr("width",width);
+
+    svg.append("g").attr("transform", "translate(600,550)").call(ch);
+
+    d3.select(self.frameElement).style("height", height+"px").style("width", width+"px");
 
 
     </script>
